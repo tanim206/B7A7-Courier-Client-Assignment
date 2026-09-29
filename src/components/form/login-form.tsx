@@ -173,7 +173,7 @@ export default function LoginForm() {
       <div className="text-center text-sm text-muted-foreground">
         Don&apos;t have an account?{" "}
         <Link
-          href="/register"
+          href="/create-account"
           className="font-medium underline underline-offset-4 hover:text-primary"
         >
           Register

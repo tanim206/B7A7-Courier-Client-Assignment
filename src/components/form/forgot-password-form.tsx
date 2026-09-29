@@ -28,10 +28,7 @@ const STEPS = ["email", "otp", "password"] as const;
 
 type Step = (typeof STEPS)[number];
 
-const STEP_CONTENT: Record<
-  Step,
-  { title: string; description: string }
-> = {
+const STEP_CONTENT: Record<Step, { title: string; description: string }> = {
   email: {
     title: "Forgot password",
     description:
@@ -362,9 +359,7 @@ export default function ForgotPasswordForm() {
                       />
                       <button
                         type="button"
-                        onClick={() =>
-                          setShowConfirmPassword((prev) => !prev)
-                        }
+                        onClick={() => setShowConfirmPassword((prev) => !prev)}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground focus:outline-none"
                         aria-label={
                           showConfirmPassword

@@ -15,11 +15,8 @@ interface IProps {
 
 export default function RoleGuard({ children, roles }: IProps) {
   const router = useRouter();
-
   const { data, isPending, isError } = useGetMe();
-
   const user = data?.data;
-
   const isAuthorized = !!user && roles.includes(user.role);
 
   useEffect(() => {

@@ -11,7 +11,7 @@ export default function VerifyAccountPage() {
           <Link href="/" className="flex items-center gap-2 font-medium">
             <div className="flex items-center gap-2">
               {/* <Logo /> */}
-              <span>PH Healthcare</span>
+              <span> Courier and Logistic Platform</span>
             </div>
           </Link>
         </div>

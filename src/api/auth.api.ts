@@ -1,7 +1,9 @@
 import apiClient from "@/lib/apiClient";
 import {
+  ApiResponse,
   ForgotPasswordPayload,
   LoginPayload,
+  Me,
   RegisterPayload,
   ResetPasswordPayload,
   VerifyPayload,
@@ -11,7 +13,7 @@ export function googleOAuth(payload: { idToken: string }) {
   return apiClient("/auth/google", { method: "POST", body: payload });
 }
 export function getMe() {
-  return apiClient("/auth/me");
+  return apiClient<ApiResponse<Me>>("/auth/me");
 }
 
 export function userLogout() {

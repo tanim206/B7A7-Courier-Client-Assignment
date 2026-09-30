@@ -74,7 +74,7 @@ export function RegisterForm() {
         });
 
         const params = new URLSearchParams({ email: registrationData.email });
-        router.push(`/register/verify?${params.toString()}`);
+        router.push(`/create-account/verify?${params.toString()}`);
       } catch (err: any) {
         toast.add({
           title: "Authorization failure",

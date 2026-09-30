@@ -9,8 +9,7 @@ import Link from "next/link";
 export default function Navber() {
   const routes = [
     { name: "Home", url: "/" },
-    { name: "Doctors", url: "/doctors" },
-    { name: "About us", url: "/about-us" },
+    { name: "About", url: "/about" },
   ];
 
   const { data, isLoading } = useGetMe();

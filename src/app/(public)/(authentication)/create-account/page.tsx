@@ -1,4 +1,5 @@
 import { RegisterForm } from "@/components/form/register-form";
+import { Logo } from "@/utils/logo";
 import Link from "next/link";
 
 export default function RegisterPage() {
@@ -6,8 +7,8 @@ export default function RegisterPage() {
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
-          <Link href="/" className="flex items-center gap-2 font-medium">
-           Courier and Logistic Platform
+          <Link href="/">
+            <Logo />
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">
@@ -16,13 +17,8 @@ export default function RegisterPage() {
           </div>
         </div>
       </div>
-      <div className="relative hidden bg-muted lg:block">
-        <img
-          src="/images/register.jpg"
-          alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-        />
-      </div>
+
+      <img src="/assets/banner.png" alt="Image" className="p-20" />
     </div>
   );
 }

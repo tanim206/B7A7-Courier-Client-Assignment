@@ -1,1 +1,7 @@
 export const OTP_LENGTH = 6;
+
+//  THE UPLOAD MIDDLEWARE ACCEPTS AT MOST TEN FILES PER APPLICATION
+
+export const MAX_APPLICATION_FILES = 10;
+export const MAX_APPLICATION_FILE_SIZE = 5 * 1024 * 1024;
+export const ACCEPTED_APPLICATION_FILES = "image/*,application/pdf";

@@ -21,7 +21,7 @@ const dashboardRoute: Record<UserRole, string> = {
   SUPER_ADMIN: "/dashboard/admin",
   ADMIN: "/dashboard/admin",
   CUSTOMER: "/dashboard",
-  STAFF: "/dashboard/staff",
+  STAFF: "/dashboard",
 };
 
 export default function UserMenu() {

@@ -19,12 +19,12 @@ export const customerRoutes: SidebarItems = [
         url: `${prefix}/shipments`,
         icon: PackageSearch,
       },
+      { title: "Payments", url: `${prefix}/payments`, icon: CreditCard },
       {
-        title: "Hub Applications",
+        title: "Staff Application",
         url: `${prefix}/applications`,
         icon: ClipboardList,
       },
-      { title: "Payments", url: `${prefix}/payments`, icon: CreditCard },
     ],
   },
   {

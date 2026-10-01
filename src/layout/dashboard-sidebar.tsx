@@ -19,6 +19,7 @@ import {
 import { adminRoutes, customerRoutes, staffRoutes } from "@/routes";
 import type { SidebarItems } from "@/types/sidebar.type";
 import type { UserRole } from "@/types/user.type";
+import { Logo } from "@/utils/logo";
 
 const sidebarRoutes: Partial<Record<UserRole, SidebarItems>> = {
   SUPER_ADMIN: adminRoutes,
@@ -40,13 +41,7 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" render={<Link href="/" />}>
-              <Package />
-              <div className="grid text-left text-sm leading-tight">
-                <span className="truncate font-medium">Courier Jhaw</span>
-                <span className="truncate text-xs text-muted-foreground">
-                  Dashboard
-                </span>
-              </div>
+              <Logo />
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

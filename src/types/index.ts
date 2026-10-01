@@ -4,4 +4,6 @@ export * from "./shipment.type";
 export * from "./sidebar.type";
 export * from "./user.type";
 
-export * from "./admin.type";
+export * from "./admin.type"
+
+export * from "./hub-application.type";

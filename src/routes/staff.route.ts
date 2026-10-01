@@ -19,13 +19,12 @@ export const staffRoutes: SidebarItems = [
         title: "Shipments",
         url: `${prefix}/shipments`,
         icon: PackageSearch,
-      },
+      },  
       {
         title: "New Shipment",
         url: `${prefix}/shipments/create`,
         icon: PackagePlus,
       },
-      { title: "Hubs", url: `${prefix}/hub`, icon: Building2 },
       {
         title: "Applications",
         url: `${prefix}/applications`,

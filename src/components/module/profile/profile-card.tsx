@@ -7,12 +7,15 @@ import {
   KeyRound,
   LogIn,
   Mail,
+  PencilIcon,
   Phone,
   ShieldCheck,
   User as UserIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -22,6 +25,7 @@ import {
 } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
 import { useGetMe } from "@/hooks";
+import { settingsRouteByRole } from "@/routes";
 import type { UserRole, UserStatus } from "@/types";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -107,7 +111,20 @@ export default function ProfileCard() {
     <div className="mx-auto w-full max-w-3xl px-4 py-10">
       <Card>
         <CardHeader className="border-b">
-          <CardTitle>My Profile</CardTitle>
+          <CardTitle className="flex items-center justify-between gap-2">
+            My Profile
+            <Button
+              size="sm"
+              variant="outline"
+              nativeButton={false}
+              render={
+                <Link href={settingsRouteByRole[user.role]}>
+                  <PencilIcon />
+                  Edit profile
+                </Link>
+              }
+            />
+          </CardTitle>
           <CardDescription>
             The account you are currently signed in with.
           </CardDescription>

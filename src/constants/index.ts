@@ -5,3 +5,8 @@ export const OTP_LENGTH = 6;
 export const MAX_APPLICATION_FILES = 10;
 export const MAX_APPLICATION_FILE_SIZE = 5 * 1024 * 1024;
 export const ACCEPTED_APPLICATION_FILES = "image/*,application/pdf";
+
+//  THE PROFILE IMAGE MIDDLEWARE ACCEPTS ONE IMAGE UP TO 5 MB
+
+export const MAX_PROFILE_IMAGE_SIZE = 5 * 1024 * 1024;
+export const ACCEPTED_PROFILE_IMAGE = "image/jpeg,image/png,image/webp,image/gif";

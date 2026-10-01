@@ -27,3 +27,10 @@ export interface Me {
   createdAt: string;
   hub: Hub | null;
 }
+
+//  THE EMAIL IS THE LOGIN IDENTITY SO IT IS NOT EDITABLE HERE
+
+export interface UpdateProfilePayload {
+  name: string;
+  phone: string;
+}

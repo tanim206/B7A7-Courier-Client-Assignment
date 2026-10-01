@@ -5,6 +5,7 @@ import {
   CreditCard,
   LayoutDashboard,
   PackageSearch,
+  Settings,
   Users,
 } from "lucide-react";
 import type { SidebarItems } from "@/types/sidebar.type";
@@ -36,5 +37,9 @@ export const adminRoutes: SidebarItems = [
         icon: ChartNoAxesColumn,
       },
     ],
+  },
+  {
+    title: "App Settings",
+    items: [{ title: "Settings", url: `${prefix}/settings`, icon: Settings }],
   },
 ];

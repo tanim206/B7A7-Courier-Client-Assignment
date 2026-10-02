@@ -17,6 +17,7 @@ import {
   PaymentStatusBadge,
   ShipmentStatusBadge,
 } from "@/components/module/shipment/shipment-status-badge";
+import { PaymentShareDialog } from "@/components/module/shipment/payment-share-dialog";
 import { ShipmentTimeline } from "@/components/module/shipment/shipment-timeline";
 import {
   useDeliverShipment,
@@ -96,6 +97,12 @@ export function ShipmentDetails({ shipmentId, backHref, backLabel }: IProps) {
   const actions = response.data.actions;
   const isActionPending = retryPending || receivePending || deliverPending;
 
+  //  THE PAYMENT BLOCKS SHARE ONE GATE, A COLLECTED
+  //  PARCEL NO LONGER NEEDS A LINK TO PAY FOR
+
+  const showsPaymentActions =
+    (actions.canPay || isStaff) && shipment.payment?.status !== "PAID";
+
   const handlePay = (paymentUrl: string | null, paymentError?: string | null) => {
     if (!paymentUrl) {
       toast.add({
@@ -123,28 +130,36 @@ export function ShipmentDetails({ shipmentId, backHref, backLabel }: IProps) {
         </Button>
 
         <div className="flex flex-wrap gap-2">
-          {(actions.canPay || isStaff) && shipment.payment?.status !== "PAID" && (
-            <Button
-              disabled={isActionPending}
-              onClick={() =>
-                retryPayment(shipment.id, {
-                  onSuccess: (retryResponse) =>
-                    handlePay(
-                      retryResponse.data.paymentUrl,
-                      retryResponse.data.paymentError,
-                    ),
-                  onError: (retryError: unknown) =>
-                    toast.add({
-                      title: "Payment could not be started",
-                      description: getApiErrorMessage(retryError),
-                      type: "error",
-                    }),
-                })
-              }
-            >
-              {retryPending ? <Spinner /> : <CreditCardIcon />}
-              Pay with bKash
-            </Button>
+          {showsPaymentActions && (
+            <>
+              <Button
+                disabled={isActionPending}
+                onClick={() =>
+                  retryPayment(shipment.id, {
+                    onSuccess: (retryResponse) =>
+                      handlePay(
+                        retryResponse.data.paymentUrl,
+                        retryResponse.data.paymentError,
+                      ),
+                    onError: (retryError: unknown) =>
+                      toast.add({
+                        title: "Payment could not be started",
+                        description: getApiErrorMessage(retryError),
+                        type: "error",
+                      }),
+                  })
+                }
+              >
+                {retryPending ? <Spinner /> : <CreditCardIcon />}
+                Pay with bKash
+              </Button>
+
+              <PaymentShareDialog
+                shipmentId={shipment.id}
+                amount={shipment.payment?.amount}
+                currency={shipment.payment?.currency}
+              />
+            </>
           )}
 
           {isStaff && actions.canReceive && (

@@ -1,6 +1,7 @@
 export * from "./auth.hook"
 export * from "./shipment.hook"
 export * from "./use-debounced-value"
+export * from "./use-copy-to-clipboard"
 export * from "./admin.hook"
 export * from "./hub-application.hook"
 export * from "./user.hook"

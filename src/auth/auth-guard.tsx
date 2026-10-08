@@ -8,7 +8,6 @@ import AuthLoading from "./auth-loading";
 export default function AuthGuard({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { data, isPending, isError } = useGetMe();
-  console.log(data);
 
   const user = data?.data;
   useEffect(() => {
@@ -18,7 +17,7 @@ export default function AuthGuard({ children }: { children: ReactNode }) {
     if (isError || !user) {
       router.replace("/login");
     }
-  }, [isPending, isError, user]);
+  }, [isPending, isError, user, router]);
 
   if (isPending) {
     return <AuthLoading />;

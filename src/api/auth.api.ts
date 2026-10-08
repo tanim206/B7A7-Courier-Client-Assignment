@@ -20,6 +20,10 @@ export function userLogout() {
   return apiClient("/auth/logout", { method: "POST" });
 }
 
+export function refreshAccessToken() {
+  return apiClient("/auth/refresh-token", { method: "POST" });
+}
+
 export function userRegistration(payload: RegisterPayload) {
   return apiClient("/auth/register", { method: "POST", body: payload });
 }

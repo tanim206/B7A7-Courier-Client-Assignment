@@ -26,12 +26,14 @@ const dashboardRoute: Record<UserRole, string> = {
 
 export default function UserMenu() {
   const router = useRouter();
-  const queryClient = useQueryClient();
+ 
   const { data } = useGetMe();
   const { mutate: logout } = useLogout();
 
   const user = data?.data;
   const role: UserRole | undefined = user?.role;
+   const queryClient = useQueryClient();
+
 
   if (!user || !role) {
     return null;
@@ -49,7 +51,7 @@ export default function UserMenu() {
         queryClient.removeQueries({ queryKey: ["user"] });
 
         router.push("/");
-        router.refresh();
+        // router.refresh();
       },
       onError: (err) => {
         toast.add({
